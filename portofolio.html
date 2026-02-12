@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ahnaf Tahmid | Frontend Developer</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: white;
+            scroll-behavior: smooth;
+
+            /* Background Image */
+            background:
+                linear-gradient(rgba(10, 10, 10, 0.85),
+                    rgba(10, 10, 10, 0.85)),
+                url("image/programmer-night.jpg");
+
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        .navbar {
+            background: rgba(6, 45, 34, 0.85);
+            backdrop-filter: blur(10px);
+        }
+
+        .section {
+            padding: 100px 0;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero span {
+            background: linear-gradient(45deg, #00ff7f, #38b000);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid #00ff7f;
+            box-shadow: 0 0 25px #00ff7f;
+        }
+
+        .btn-custom {
+            background: linear-gradient(45deg, #00ff7f, #38b000);
+            border: none;
+            color: white;
+            transition: .3s;
+        }
+
+        .btn-custom:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px #00ff7f;
+        }
+
+        .card {
+            background: rgba(6, 45, 34, 0.85);
+            border: 1px solid #00ff7f;
+            transition: .3s;
+            color: white;
+        }
+
+        .card h5 {
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        .card p {
+            color: #e0e0e0;
+        }
+
+
+        .progress {
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .progress-bar {
+            background: linear-gradient(45deg, #00ff7f, #38b000);
+        }
+
+        form input,
+        form textarea {
+            background: rgba(6, 45, 34, 0.85);
+            color: white;
+            border: 1px solid #00ff7f;
+        }
+
+        form input::placeholder,
+        form textarea::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        form input:focus,
+        form textarea:focus {
+            box-shadow: 0 0 10px #00ff7f;
+        }
+
+        footer {
+            background: rgba(6, 45, 34, 0.9);
+            padding: 20px;
+        }
+
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+
+        .light-mode {
+            background:
+                linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)),
+                url("image/programmer-night.jpg");
+            color: black;
+        }
+
+        .contact-card {
+            background: rgba(6, 45, 34, 0.6);
+            border: 1px solid rgba(0, 255, 127, 0.4);
+            border-radius: 20px;
+            backdrop-filter: blur(15px);
+        }
+
+        .contact-card .form-control {
+            background: transparent;
+            border: 1px solid rgba(0, 255, 127, 0.4);
+            color: white;
+        }
+
+        .contact-card .form-control::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .contact-card .form-control:focus {
+            box-shadow: none;
+            border-color: #00ff7f;
+        }
+
+        .contact-icons a {
+            color: #00ff7f;
+            font-size: 22px;
+            margin: 0 10px;
+            transition: .3s;
+        }
+
+        .contact-icons a:hover {
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        footer.footer {
+            background: rgba(6, 45, 34, 0.95);
+            border-top: 1px solid #00ff7f;
+            border-radius: 15px 15px 0 0;
+            box-shadow: 0 -5px 25px rgba(0, 255, 127, 0.2);
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        footer.footer:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 -10px 35px rgba(0, 255, 127, 0.4);
+        }
+
+        footer.footer p,
+        footer.footer small {
+            color: #ffffff;
+            margin: 0;
+        }
+
+        footer.footer .footer-icons a {
+            color: #00ff7f;
+            font-size: 24px;
+            margin: 0 12px;
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        footer.footer .footer-icons a:hover {
+            color: white;
+            transform: scale(1.2);
+        }
+
+        footer.footer small {
+            display: block;
+            margin-top: 10px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Compact Project Card Design */
+
+        .project-card {
+            background: rgba(6, 45, 34, 0.85);
+            border: 1px solid rgba(0, 255, 127, 0.3);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+
+        .project-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 10px 25px rgba(0, 255, 127, 0.2);
+        }
+
+        .project-img {
+            width: 100%;
+            height: 150px;
+            /* Smaller image */
+            object-fit: cover;
+        }
+
+        .project-content {
+            padding: 15px;
+        }
+
+        .project-content h5 {
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+
+        .project-content p {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.75);
+            margin-bottom: 0;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-img {
+            width: 320px;
+            height: 320px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #00ff7f;
+            box-shadow: 0 0 35px rgba(0, 255, 127, 0.6);
+        }
+
+        .hero-title {
+            font-size: 55px;
+            font-weight: 700;
+        }
+
+        .hero-name {
+            font-size: 55px;
+            font-weight: 700;
+            background: linear-gradient(45deg, #00ff7f, #38b000);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-role {
+            font-size: 28px;
+            font-weight: 600;
+        }
+
+        .hero-role span {
+            background: linear-gradient(45deg, #00ff7f, #38b000);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-text {
+            color: rgba(255, 255, 255, 0.75);
+            max-width: 500px;
+        }
+
+        .social-icons a {
+            color: #00ff7f;
+            font-size: 20px;
+            margin-right: 15px;
+            border: 1px solid rgba(0, 255, 127, 0.6);
+            padding: 8px 12px;
+            border-radius: 50%;
+            transition: 0.3s;
+        }
+
+        .social-icons a:hover {
+            background: linear-gradient(45deg, #00ff7f, #38b000);
+            color: black;
+        }
+
+        .hero-btn {
+            border: 1px solid #00ff7f;
+            color: #00ff7f;
+            padding: 10px 25px;
+            margin-right: 15px;
+            border-radius: 30px;
+            transition: 0.3s;
+            text-decoration: none;
+        }
+
+        .hero-btn:hover {
+            background: linear-gradient(45deg, #00ff7f, #38b000);
+            color: black;
+            box-shadow: 0 0 20px rgba(0, 255, 127, 0.6);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Particle Background -->
+    <div id="particles-js"></div>
+
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">Ahnaf Tahmid</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="nav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero container">
+        <div class="row align-items-center w-100">
+
+            <div class="col-md-6 text-center mb-4 mb-md-0">
+                <img src="image/ahnaf.webp" class="hero-img" alt="Ahnaf">
+            </div>
+
+            <div class="col-md-6 text-md-start text-center">
+
+                <h1 class="hero-title">Hi, It's</h1>
+                <h1 class="hero-name">Ahnaf Tahmid</h1>
+
+                <h3 class="hero-role">
+                    I'm a <span>Frontend Developer</span>
+                </h3>
+
+                <p class="hero-text mt-3">
+                    Motivated professional with strong frontend expertise, creating
+                    modern, responsive and user-friendly web experiences.
+                </p>
+
+                <div class="social-icons mt-4">
+                    <a href="https://www.linkedin.com/in/ahnaf-tahmid-b42182205"><i class="bi bi-linkedin"></i></a>
+                    <a href="#"><i class="bi bi-github"></i></a>
+                    <a href="https://www.facebook.com/ahnaf.tahmid.m"><i class="bi bi-facebook"></i></a>
+                    <a href="https://www.instagram.com/ahnaf_tahmid_m/"><i class="bi bi-instagram"></i></a>
+                </div>
+
+                <div class="mt-4">
+                    <a href="image/new job88.pdf" class="hero-btn">Get CV</a>
+                    <a href="#contact" class="hero-btn">Hire Me</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="section container text-center" data-aos="fade-up">
+        <h2 class="mb-4">About Me</h2>
+        <p class="w-75 mx-auto">
+            I’m a passionate Fronted Developer with a Diploma in Computer Science and Engineering, completed over 4
+            years, and have undergone specialised training to sharpen my skills. With over 3 years of professional
+            experience, I specialise in crafting responsive, high-performance websites with clean code, smooth
+            animations, and intuitive interfaces. From sleek landing pages to interactive web apps, I combine creativity
+            with technology to deliver products that users love. My mission is to bridge the gap between design and
+            functionality, turning concepts into reality while keeping every pixel purposeful and every interaction
+            engaging. Let’s build something extraordinary together.
+        </p>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="section container">
+        <h2 class="text-center mb-5" data-aos="fade-up">My Skills</h2>
+
+        <p>HTML</p>
+        <div class="progress mb-4">
+            <div class="progress-bar" style="width:95%"></div>
+        </div>
+
+        <p>CSS / Bootstrap</p>
+        <div class="progress mb-4">
+            <div class="progress-bar" style="width:90%"></div>
+        </div>
+
+        <p>JavaScript</p>
+        <div class="progress mb-4">
+            <div class="progress-bar" style="width:85%"></div>
+        </div>
+
+        <p>React</p>
+        <div class="progress mb-4">
+            <div class="progress-bar" style="width:75%"></div>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="section container">
+        <h2 class="text-center mb-4" data-aos="fade-up">Projects</h2>
+
+        <div class="row g-3">
+
+            <!-- POS System -->
+            <div class="col-md-4 col-sm-6" data-aos="fade-up">
+                <div class="project-card">
+                    <img src="image/pos-system.png" class="project-img" alt="POS System">
+                    <div class="project-content">
+                        <h5><i class="bi bi-pc-display me-1"></i>POS System</h5>
+                        <p>Inventory & sales management system.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Amazon -->
+            <div class="col-md-4 col-sm-6" data-aos="fade-up">
+                <div class="project-card">
+                    <img src="image/amazon.png" class="project-img" alt="Amazon">
+                    <div class="project-content">
+                        <h5><i class="bi bi-cart-check me-1"></i>Amazon Listing</h5>
+                        <p>SEO optimized product upload & management.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Shopify -->
+            <div class="col-md-4 col-sm-6" data-aos="fade-up">
+                <div class="project-card">
+                    <img src="image/shopify-product-upload.png" class="project-img" alt="Shopify">
+                    <div class="project-content">
+                        <h5><i class="bi bi-shop me-1"></i>Shopify Upload</h5>
+                        <p>Product entry, SKU setup & pricing.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Airport -->
+            <div class="col-md-4 col-sm-6" data-aos="fade-up">
+                <div class="project-card">
+                    <img src="image/pi.png" class="project-img" alt="Airport">
+                    <div class="project-content">
+                        <h5><i class="bi bi-airplane me-1"></i>Airport Listing</h5>
+                        <p>Duty-free product database management.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- College Website -->
+            <div class="col-md-4 col-sm-6" data-aos="fade-up">
+                <div class="project-card">
+                    <img src="image/clg.png" class="project-img" alt="College">
+                    <div class="project-content">
+                        <h5><i class="bi bi-mortarboard me-1"></i>College Website</h5>
+                        <p>Responsive modern homepage design.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Portfolio -->
+            <div class="col-md-4 col-sm-6" data-aos="fade-up">
+                <div class="project-card">
+                    <img src="image/portfolio.png" class="project-img" alt="Portfolio">
+                    <div class="project-content">
+                        <h5><i class="bi bi-person-badge me-1"></i>Portfolio</h5>
+                        <p>Interactive animated personal website.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+
+    <!-- Contact -->
+    <section id="contact" class="section container" data-aos="fade-up">
+        <h2 class="text-center mb-4">Let’s Connect</h2>
+        <p class="text-center mb-5 text-light opacity-75">
+            Have a project or idea? Let’s talk.
+        </p>
+
+        <div class="row justify-content-center">
+            <div class="col-md-5 col-lg-4">
+
+                <div class="contact-card p-4">
+                    <form>
+                        <div class="mb-3">
+                            <input type="text" class="form-control" placeholder="Your Name">
+                        </div>
+
+                        <div class="mb-3">
+                            <input type="email" class="form-control" placeholder="Your Email">
+                        </div>
+
+                        <div class="mb-3">
+                            <textarea rows="3" class="form-control" placeholder="Your Message"></textarea>
+                        </div>
+
+                        <button class="btn btn-custom w-100">
+                            Send Message 🚀
+                        </button>
+                    </form>
+
+                    <div class="contact-icons mt-4 text-center">
+                        <a href="mailto:hello.ahnaf.tahmid@gmail.com" target="_blank"><i class="bi bi-envelope"></i></a>
+                        <a href="https://github.com/ahnaf-tahmid" target="_blank"><i class="bi bi-github"></i></a>
+                        <a href="https://www.linkedin.com/in/ahnaf-tahmid-b42182205" target="_blank"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer py-2 mt-4">
+        <div
+            class="container d-flex flex-column flex-md-row justify-content-between align-items-center text-center text-md-start">
+            <div class="footer-left mb-2 mb-md-0">
+                🚀 Building digital dreams with code
+            </div>
+            <div class="footer-icons mb-2 mb-md-0">
+                <a href="mailto:hello.ahnaf.tahmid@gmail.com" target="_blank"><i class="bi bi-envelope-fill"></i></a>
+                <a href="https://github.com/ahnaf-tahmid" target="_blank"><i class="bi bi-github"></i></a>
+                <a href="https://www.linkedin.com/in/ahnaf-tahmid-b42182205" target="_blank"><i class="bi bi-linkedin"></i></a>
+            </div>
+            <div class="footer-right">
+                © 2026 <strong>Ahnaf Tahmid</strong>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
+    <script>
+        particlesJS("particles-js", {
+            particles: {
+                number: { value: 60 },
+                color: { value: "#00ff7f" },
+                shape: { type: "circle" },
+                opacity: { value: 0.3 },
+                size: { value: 3 },
+                move: { speed: 1 }
+            },
+            interactivity: {
+                events: {
+                    onhover: { enable: true, mode: "repulse" }
+                }
+            }
+        });
+    </script>
+
+    <!-- AOS Script -->
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true,
+            disable: function () {
+                return window.innerWidth < 768;
+            }
+        });
+    </script>
+
+
+</body>
+
+</html>
